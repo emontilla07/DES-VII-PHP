@@ -1,0 +1,9 @@
+<?php
+    define('PI', 3.141593);
+    $diametro = $_POST['diam'];
+    $altura = $_POST['altu'];
+    $radio = $diametro / 2;
+    $volumen = PI * $radio * $radio * $altura;
+
+    echo "<br> El volumen del cilindro es de " . $volumen . " metros cubicos";
+?>
