@@ -9,13 +9,28 @@
 <body>
     <h1>Consulta de noticias</h1>
 
+    <div class="paginacion">
+        <a href="LAB111.php?inicio=0&fin=5">[ Anterior | </a>
+        <a href="LAB111.php?inicio=5&fin=7">Siguiente ]</a>
+    </div>
+
     <?php
         require_once('class/noticias.php');
-
+        error_reporting(0);
         $obj_noticias = new Noticias();
-        $noticias = $obj_noticias->consultarNoticias();
-        $nFilas = count($noticias);
 
+        $inicio = $_POST['inicio'];
+        $fin = $_POST['fin'];
+
+        if($inicio == null && $fin == null){
+            $inicio = 0;
+            $fin = 5;
+        }
+
+        $noticias = $obj_noticias->consultarNoticiasPaginacion($inicio, $fin);
+        echo "<p>Mostrando noticias del ".$inicio + 1 ." al ".$fin."</p>";
+        $nFilas = count($noticias);
+    
         if ($nFilas > 0) {
             print ("<table>\n");
                 print ("<tr>\n");

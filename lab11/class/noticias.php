@@ -38,8 +38,8 @@
             }
         }
 
-        public function consultarNoticiasPaginacion() {
-            $instruccion = "CALL sp_listar_noticias_paginacion()";
+        public function consultarNoticiasPaginacion($inicio, $final) {
+            $instruccion = "CALL sp_listar_noticias_paginacion('".$inicio."', '".$final."')";
             $consulta = $this->_db->query($instruccion);
             $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
