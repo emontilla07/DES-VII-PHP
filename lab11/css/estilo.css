@@ -18,3 +18,5 @@
    TD.derecha {font-size: 10pt; text-align: right; background: #FFFFFF;}
    TD.izquierda {font-size: 10pt; text-align: left; background: #FFFFFF;}
 
+/* Paginacion */
+.paginacion {font-size: 10pt; font-weight: bold; color: black; background: #CCCCCC; text-align: center;}
