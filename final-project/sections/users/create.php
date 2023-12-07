@@ -1,3 +1,20 @@
+<?php
+    include("../../db.php");
+
+    if ($_POST) {
+        $user = (isset($_POST["userName"]) ? $_POST["userName"] : "");
+        $password = (isset($_POST["password"]) ? $_POST["password"] : "");
+        $email = (isset($_POST["email"]) ? $_POST["email"] : "");
+
+        $conn = $conection->prepare("INSERT INTO users(id, user, password, email) VALUES(null, :user, :password, :email)");
+        $conn->bindParam(":user", $user);
+        $conn->bindParam(":password", $password);
+        $conn->bindParam(":email", $email);
+        $conn->execute();
+
+        header("location:index.php");
+    }
+?>
 <?php include("../../templates/header.php"); ?>
 <div class="card mt-3">
         <div class="card-header">Datos del Usuarios</div>
@@ -36,7 +53,6 @@
                         placeholder="example@example.com"
                     />
                 </div>
-                
                 <button
                     type="submit"
                     class="btn btn-success"

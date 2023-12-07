@@ -1,3 +1,20 @@
+<?php
+    include("../../db.php");
+
+    $conn = $conection->prepare("SELECT * FROM users");
+    $conn->execute();
+    $listTableUsers = $conn->fetchAll(PDO::FETCH_ASSOC);
+    
+    if (isset($_GET["txtID"])) {
+        $txtID = (isset($_GET["txtID"]) ? $_GET["txtID"] : "");
+
+        $conn = $conection->prepare("DELETE FROM users WHERE id =:id ");
+        $conn->bindParam(":id", $txtID);
+        $conn->execute();
+
+        header("location:index.php");
+    }
+?>
 <?php include("../../templates/header.php"); ?>
 <div class="table-responsive-sm mt-3">
         <div class="card">
@@ -23,29 +40,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="">
-                            <td scope="row">1</td>
-                            <td>Programador Jr</td>
-                            <td>******</td>
-                            <td>eric@example.com</td>
-                            <td>
-                                <input
-                                    name="btnUpdate"
-                                    id="btnUpdate"
-                                    class="btn btn-outline-primary"
-                                    type="button"
-                                    value="Editar"
-                                />
-                                <input
-                                    name="btnDelete"
-                                    id="btnDelete"
-                                    class="btn btn-outline-danger"
-                                    type="button"
-                                    value="Eliminar"
-                                />
-                                
-                            </td>
-                        </tr>
+                        <?php foreach($listTableUsers as $records) { ?>
+                            <tr>
+                                <td scope="row"><?php echo $records["id"] ?></td>
+                                <td><?php echo $records["user"] ?></td>
+                                <td><?php echo $records["password"] ?></td>
+                                <td><?php echo $records["email"] ?></td>
+                                <td>
+                                    <a
+                                        class="btn btn-outline-primary me-2"
+                                        href="update.php?txtID=<?php echo $records["id"]; ?>"
+                                        role="button"
+                                    >
+                                        Editar
+                                    </a>
+                                    <a
+                                        class="btn btn-outline-danger"
+                                        href="index.php?txtID=<?php echo $records["id"]; ?>"
+                                        role="button"
+                                    >
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>  

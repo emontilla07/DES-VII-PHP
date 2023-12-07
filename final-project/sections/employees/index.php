@@ -35,7 +35,7 @@
                                 <a
                                     name=""
                                     id=""
-                                    class="btn btn-outline-secondary"
+                                    class="btn btn-outline-secondary me-2"
                                     href="#"
                                     role="button"
                                     >Carta</a
@@ -43,7 +43,7 @@
                                 <a
                                     name=""
                                     id=""
-                                    class="btn btn-outline-primary"
+                                    class="btn btn-outline-primary me-2"
                                     href="#"
                                     role="button"
                                     >Editar</a
