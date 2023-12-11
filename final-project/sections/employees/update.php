@@ -21,8 +21,6 @@
         $conn = $conection->prepare("SELECT * FROM jobposition");
         $conn->execute();
         $listTableJobPosition = $conn->fetchAll(PDO::FETCH_ASSOC);
-
-        // header("location:index.php");
     }
 
     if ($_POST) {
@@ -44,8 +42,6 @@
         $conn->bindParam(":middleName", $middleName);
         $conn->bindParam(":lastName", $lastName);
         $conn->bindParam(":secondLastName", $secondLastName);
-        // $conn->bindParam(":photo", $newNamePhoto);
-        // $conn->bindParam(":hv", $newNameHv);
         $conn->bindParam(":idJobPosition", $idJobPosition);
         $conn->bindParam(":dateAdmission", $dateAdmission);
         $conn->bindParam(":id", $txtID);
@@ -102,7 +98,9 @@
             $conn->execute();
         }
 
-        header("location:index.php");
+        $mensaje = "Registro Actualizado";
+
+        header("location:index.php?mensaje=".$mensaje);
     }
 ?>
 <?php include("../../templates/header.php"); ?>
@@ -231,7 +229,7 @@
                     type="submit"
                     class="btn btn-success"
                 >
-                    Guardar
+                    Actualizar
                 </button>
                 <a
                     name=""

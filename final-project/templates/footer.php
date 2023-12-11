@@ -25,6 +25,23 @@
       });
     });
   </script>
+
+  <script>
+    function deleteRecords(id) {
+        Swal.fire({
+            title: "¿Desea borrar el registro?",
+            showDenyButton: false,
+            showCancelButton: true,
+            confirmButtonText: "Si",
+            denyButtonText: `No`
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                window.location = `index.php?txtID=${id}`;
+            }
+        });
+    }
+  </script>
 </body>
 
 </html>

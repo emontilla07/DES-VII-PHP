@@ -25,7 +25,9 @@
         $conn->bindParam(":id", $txtID);
         $conn->execute();
 
-        header("location:index.php");
+        $mensaje = "Registro Actualizado";
+
+        header("location:index.php?mensaje=".$mensaje);
     }
 ?>
 <?php include("../../templates/header.php"); ?>
@@ -87,7 +89,7 @@
                     type="submit"
                     class="btn btn-success"
                 >
-                    Guardar
+                    Actualizar
                 </button>
                 <a
                     name=""

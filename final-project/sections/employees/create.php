@@ -41,7 +41,9 @@
         $conn->bindParam(":dateAdmission", $dateAdmission);
         $conn->execute();
 
-        header("location:index.php");
+        $mensaje = "Registro Agregado";
+
+        header("location:index.php?mensaje=".$mensaje);
     }
 
     $conn = $conection->prepare("SELECT * FROM jobposition");

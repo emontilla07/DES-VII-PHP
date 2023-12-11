@@ -12,7 +12,9 @@
         $conn->bindParam(":email", $email);
         $conn->execute();
 
-        header("location:index.php");
+        $mensaje = "Registro Agregado";
+
+        header("location:index.php?mensaje=".$mensaje);
     }
 ?>
 <?php include("../../templates/header.php"); ?>

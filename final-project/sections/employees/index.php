@@ -25,7 +25,9 @@
         $conn->bindParam(":id", $txtID);
         $conn->execute();
 
-        header("location:index.php");
+        $mensaje = "Registro Eliminado";
+
+        header("location:index.php?mensaje=".$mensaje);
     }
 
     $conn = $conection->prepare("SELECT *, (SELECT jobPositionName 
@@ -87,7 +89,7 @@
                                     </a>
                                     <a
                                         class="btn btn-outline-danger"
-                                        href="index.php?txtID=<?php echo $records["id"]; ?>"
+                                        href="javascript:deleteRecords(<?php echo $records['id']; ?>)"
                                         role="button"
                                     >
                                         Eliminar

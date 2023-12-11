@@ -1,5 +1,10 @@
 <?php
-    $base_url = 'http://localhost/DES-VII-PHP/final-project/';
+    session_start();
+    $base_url = 'http://localhost/DES-VII/DES-VII-PHP/final-project/';
+
+    if (!isset($_SESSION['user'])) {
+        header("location:".$base_url."login.php");
+    }
 ?>
 <!doctype html>
 <html lang="es">
@@ -42,8 +47,13 @@
               <a class="nav-link" href="<?php echo $base_url; ?>sections/users">Usuarios</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">Cerrar Sesión</a>
+              <a class="nav-link" href="<?php echo $base_url; ?>close.php">Cerrar Sesión</a>
           </li>
       </ul>
   </nav>
   <main class="container">
+  <?php if (isset($_GET['mensaje'])) { ?>
+        <script>
+            Swal.fire({icon: "success", title: "<?php echo $_GET['mensaje']; ?>"});
+        </script>
+  <?php } ?>
