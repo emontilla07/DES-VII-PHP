@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $base_url = 'http://localhost/DES-VII/DES-VII-PHP/final-project/';
+    $base_url = 'http://localhost/DES-VII-PHP/final-project/';
 
     if (!isset($_SESSION['user'])) {
         header("location:".$base_url."login.php");
