@@ -29,7 +29,7 @@
             >
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table" id="table_id">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -44,7 +44,7 @@
                             <tr>
                                 <td scope="row"><?php echo $records["id"] ?></td>
                                 <td><?php echo $records["user"] ?></td>
-                                <td><?php echo $records["password"] ?></td>
+                                <td>*********</td>
                                 <td><?php echo $records["email"] ?></td>
                                 <td>
                                     <a

@@ -29,7 +29,7 @@
             >
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table" id="table_id">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -52,7 +52,7 @@
                                     </a>
                                     <a
                                         class="btn btn-outline-danger"
-                                        href="index.php?txtID=<?php echo $records["id"]; ?>"
+                                        href="javascript:;"onclick="message(<?php echo $records["id"]; ?>)"
                                         role="button"
                                     >
                                         Eliminar
@@ -64,6 +64,6 @@
                 </table>
             </div>  
         </div>
-            <div class="card-footer text-muted"></div>
-        </div>
+    </div>
+    <script src="../../js/alert.js"></script>
 <?php include("../../templates/footer.php"); ?>

@@ -8,18 +8,18 @@
         $conn->bindParam(":id", $txtID);
         $conn->execute();
         $record = $conn->fetch(PDO::FETCH_LAZY);
-        $user = $record["userName"];
+        $userName = $record["user"];
         $password = $record["password"];
         $email = $record["email"];
     }
 
     if ($_POST) {
-        $user = (isset($_POST["userName"]) ? $_POST["userName"] : "");
+        $userName = (isset($_POST["userName"]) ? $_POST["userName"] : "");
         $password = (isset($_POST["password"]) ? $_POST["password"] : "");
         $email = (isset($_POST["email"]) ? $_POST["email"] : "");
 
-        $conn = $conection->prepare("UPDATE users SET user=:user, password=:password, email=:email WHERE id=:id");
-        $conn->bindParam(":user", $user);
+        $conn = $conection->prepare("UPDATE users SET user=:userName, password=:password, email=:email WHERE id=:id");
+        $conn->bindParam(":userName", $userName);
         $conn->bindParam(":password", $password);
         $conn->bindParam(":email", $email);
         $conn->bindParam(":id", $txtID);
@@ -46,7 +46,7 @@
                         readonly
                         value="<?php echo $txtID; ?>"
                     />
-                </div>      
+                </div>
                 <div class="mb-3">
                     <label for="userName" class="form-label">Nombre del Usuario</label>
                     <input
@@ -56,13 +56,13 @@
                         id="userName"
                         aria-describedby="helpId"
                         placeholder="johndoug01"
-                        value="<?php echo $user; ?>"
+                        value="<?php echo $userName; ?>"
                     />
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
                     <input
-                        type="password"
+                        type="text"
                         class="form-control"
                         name="password"
                         id="password"
