@@ -104,7 +104,6 @@
     }
 ?>
 <?php include("../../templates/header.php"); ?>
-    editar empleados
     <div class="card mt-3">
         <div class="card-header">
             Datos del Emplado
@@ -241,6 +240,5 @@
                 >
             </form>
         </div>
-        <div class="card-footer text-muted"></div>
     </div>
 <?php include("../../templates/footer.php"); ?>
